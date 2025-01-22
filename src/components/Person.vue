@@ -1,48 +1,41 @@
 <template>
   <div class="person">
-    <h2>汽车信息: 一辆{{ car.brand }}车，价值{{ car.price }}万</h2>
-    <button @click="changeBrand">修改汽车的品牌</button>
-    <button @click="changePrice">修改汽车的价格</button>
-    <button @click="changeCar">修改汽车</button>
-    <hr />
-    <h2>当前求和为: {{ sum }}</h2>
-    <button @click="changeSum">点我sum+1</button>
+    <h2>姓名: {{ name }}</h2>
+    <h2>年龄: {{ age }}, {{ nl }}</h2>
+    <button @click="changeName">修改名字</button>
+    <button @click="changeAge">修改年龄</button>
   </div>
 </template>
 
 <script lang="ts" setup name="Person">
-import { ref, reactive } from "vue";
+import { reactive, toRefs, toRef } from "vue";
 
 // 数据
-let car = reactive({ brand: "奔驰", price: 100 });
+let person = reactive({
+  name: "张三",
+  age: 18,
+});
 
-let sum = ref(0);
+let { name, age } = toRefs(person);
+// console.log(name, age);
+
+let nl = toRef(person, "age");
+console.log(nl, nl.value);
+
+let x = toRefs(person);
+console.log(x);
 
 // 方法
-function changeBrand() {
-  car.brand = "宝马";
+function changeName() {
+  name.value += "~";
+  console.log(name.value, person.name);
 }
 
-function changePrice() {
-  car.price += 10;
-  console.log(car.price);
-}
-
-function changeCar() {
-  // car = { brand: "奥拓", price: 1 }; // 这么写页面是不更新的
-  // car = reactive({ brand: "奥拓", price: 1 }); // 这么写页面是不更新的
-
-  // 下面这个写法页面可以更新
-  Object.assign(car, { brand: "奥拓", price: 1 });
-  // car.value = { brand: "奥拓", price: 1 };
-}
-
-function changeSum() {
-  sum.value += 1;
-  // sum = ref(9);
+function changeAge() {
+  age.value += 1;
+  console.log(age);
 }
 </script>
-
 <style>
 .person {
   background-color: skyblue;
