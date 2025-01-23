@@ -16,6 +16,11 @@ import { storeToRefs } from "pinia";
 const talkStore = useTalkStore();
 const { talkList } = storeToRefs(talkStore);
 
+talkStore.$subscribe((mutate, state) => {
+  console.log("talkStore里面保存的数据发生了变化", mutate, state);
+  localStorage.setItem("talkList", JSON.stringify(state.talkList));
+});
+
 // 方法
 function getLoveTalk() {
   //   发请求, 下面这行的写法是连续结构赋值+重命名
