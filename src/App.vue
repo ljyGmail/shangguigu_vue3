@@ -7,7 +7,7 @@
       <RouterLink :to="{ name: 'xinwen' }" active-class="active"
         >新闻</RouterLink
       >
-      <RouterLink :to="{ path: '/about' }" active-class="active"
+      <RouterLink replace :to="{ path: '/about' }" active-class="active"
         >关于</RouterLink
       >
     </div>
