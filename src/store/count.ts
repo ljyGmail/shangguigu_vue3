@@ -13,7 +13,7 @@ export const useCountStore = defineStore("count", {
   // 真正存储数据的地方
   state() {
     return {
-      sum: 6,
+      sum: 1,
       school: "atguigu",
       address: "宏福科技园",
     };
