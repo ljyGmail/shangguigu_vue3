@@ -18,4 +18,10 @@ export const useCountStore = defineStore("count", {
       address: "宏福科技园",
     };
   },
+  getters: {
+    bigSum: (state) => state.sum * 10,
+    upperSchool(): string {
+      return this.school.toUpperCase();
+    },
+  },
 });
