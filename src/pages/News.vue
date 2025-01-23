@@ -14,10 +14,10 @@
           :to="{
             name: 'xiang',
             // path: '/news/detail',
-            params: {
+            query: {
               id: news.id,
               title: news.title,
-              // content: news.content,
+              content: news.content,
             },
           }"
           >{{ news.title }}</RouterLink
