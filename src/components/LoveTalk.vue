@@ -28,7 +28,6 @@ async function getLoveTalk() {
     data: { content: title },
   } = await axios.get("https://api.uomg.com/api/rand.qinghua?format=json");
   // 把请求回来的字符串, 包装成一个对象
-  console.log(result.data.content);
   let obj = { id: nanoid(), title };
   talkList.unshift(obj);
 }
