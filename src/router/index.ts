@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Props from "@/pages/01_props/Father.vue";
+import Event from "@/pages/02_custom-event/Father.vue";
 
 export default createRouter({
   history: createWebHistory(),
@@ -9,8 +10,12 @@ export default createRouter({
       component: Props,
     },
     {
-        path:'/',
-        redirect:'/props'
-    }
+      path: "/event",
+      component: Event,
+    },
+    {
+      path: "/",
+      redirect: "/props",
+    },
   ],
 });
